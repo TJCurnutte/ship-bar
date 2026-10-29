@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ship-bar.neural-forge.io/sitemap.xml

@@ -1,0 +1,14 @@
+# ship bar
+
+> A free, copy-paste method for making AI-built websites stop looking vibe-coded: art direction rules, a banned-pattern list, and a separate reviewer agent that scores each build out of 10 against a 9.7 ship bar. By Travis Curnutte.
+
+## Key facts
+- Reviewer agent scores from screenshots at 1440px desktop and 390px mobile, plus Lighthouse (performance, accessibility, best practices, SEO), console errors, horizontal-overflow checks and a computed-style scan for banned patterns.
+- It returns a score plus ranked fixes, most important first, and never edits the repo.
+- Banned: glows, gradients, glassmorphism, floating phones, bento grids, confetti, serif headlines, filler copy.
+- Cohorts: several narrow-lens reviewer agents score independently; fixes are merged by rank.
+- Example: one product went v6 "still felt a tad vibe coded" to v12 passing at 9.7 (accessibility 100); v13 dropped to 9.3 when a sticky CTA covered a form field and a gradient slipped in.
+
+## Links
+- [Method page](https://ship-bar.neural-forge.io/)
+- [SKILL.md (plain text)](https://ship-bar.neural-forge.io/skill.md)
