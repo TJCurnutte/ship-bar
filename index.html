@@ -3,19 +3,18 @@
 <meta name="description" content="A free, copy-paste method to stop AI-built websites looking vibe-coded: a banned-pattern list, Lighthouse and screenshot checks, and a separate reviewer agent that scores each build against a 9.7 ship bar.">
 <link rel="canonical" href="https://ship-bar.neural-forge.io/"><meta name="theme-color" content="#EFEFE4">
 <meta property="og:type" content="article"><meta property="og:title" content="ship bar: design review for AI-built websites"><meta property="og:description" content="A reviewer agent scores every build. Ship at 9.7/10. Free SKILL.md."><meta property="og:url" content="https://ship-bar.neural-forge.io/"><meta property="og:image" content="https://ship-bar.neural-forge.io/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="author" content="Travis Curnutte">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="preload" href="/fonts/InterTight-600.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%233D5AFE'/%3E%3C/svg%3E">
-<style>
+<style>@font-face{font-family:'Inter Tight';font-weight:400;font-display:swap;src:url(/fonts/InterTight-400.woff2) format('woff2')}@font-face{font-family:'Inter Tight';font-weight:600;font-display:swap;src:url(/fonts/InterTight-600.woff2) format('woff2')}@font-face{font-family:'JetBrains Mono';font-weight:400;font-display:swap;src:url(/fonts/JetBrainsMono-400.woff2) format('woff2')}
 :root{--p:#EFEFE4;--i:#0A0A0A;--m:#4a4a44;--l:#cfcfc2;--a:#3D5AFE}
 *{box-sizing:border-box}body{margin:0;background:var(--p);color:var(--i);font:17px/1.6 "Inter Tight",system-ui,sans-serif}
 main{max-width:760px;margin:0 auto;padding:48px 20px 80px}
 h1,h2,h3{font-weight:600;text-transform:lowercase;letter-spacing:-.02em;line-height:1.15}h1{font-size:clamp(34px,7vw,56px);margin:.2em 0 .3em}h2{font-size:28px;margin:64px 0 12px;padding-top:16px;border-top:1px solid var(--l)}h3{font-size:19px;margin:0}
 .mono,code,pre,td.n,th{font-family:"JetBrains Mono",ui-monospace,monospace}.k{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--m)}
-a{color:var(--a)}p{margin:.6em 0}.lead{font-size:20px}
-ol.s{list-style:none;padding:0;counter-reset:s}ol.s li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;padding:14px 0;border-bottom:1px solid var(--l)}ol.s li:before{content:counter(s,decimal-leading-zero);font-family:"JetBrains Mono",monospace;font-size:14px;color:var(--a);padding-top:2px}ol.s p{grid-column:2;margin:4px 0 0;color:var(--m)}
+a{color:var(--i);text-decoration-color:var(--a);text-underline-offset:3px;text-decoration-thickness:2px}p{margin:.6em 0}.lead{font-size:20px}
+ol.s{list-style:none;padding:0;counter-reset:s}ol.s li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;padding:14px 0;border-bottom:1px solid var(--l)}ol.s li:before{content:counter(s,decimal-leading-zero);font-family:"JetBrains Mono",monospace;font-size:14px;color:var(--i);padding-top:2px}ol.s p{grid-column:2;margin:4px 0 0;color:var(--m)}
 .t{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:15px}th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--l);vertical-align:top}th{font-size:12px;font-weight:400;color:var(--m);text-transform:uppercase}td.n{font-size:14px;white-space:nowrap}
-.pass{color:var(--a)}figure{margin:24px 0}figure img{width:100%;height:auto;border:1px solid var(--i);display:block}figcaption{font-size:13px;color:var(--m);margin-top:6px}.f2{display:grid;grid-template-columns:3fr 1fr;gap:16px;align-items:start}
+.pass{font-weight:600;box-shadow:inset 0 -3px 0 var(--a)}figure{margin:24px 0}figure img{width:100%;height:auto;border:1px solid var(--i);display:block}figcaption{font-size:13px;color:var(--m);margin-top:6px}.f2{display:grid;grid-template-columns:3fr 1fr;gap:16px;align-items:start}
 pre{background:#fff;border:1px solid var(--i);padding:16px;overflow-x:auto;font-size:13px;line-height:1.5;max-height:480px;white-space:pre-wrap}
 .btn{display:inline-block;background:var(--a);color:#fff;text-decoration:none;padding:10px 16px;font-weight:600;margin:8px 12px 8px 0;border:0;font:600 16px "Inter Tight",sans-serif;cursor:pointer}
 details{border-bottom:1px solid var(--l);padding:12px 0}summary{cursor:pointer;font-weight:600}footer{margin-top:64px;font-size:14px;color:var(--m)}
