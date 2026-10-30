@@ -3,6 +3,8 @@
 > A free, copy-paste method for making AI-built websites stop looking vibe-coded: art direction rules, a banned-pattern list, and a separate reviewer agent that scores each build out of 10 against a 9.7 ship bar. By Travis Curnutte.
 
 ## Key facts
+- Cohort: 20 narrow-lens reviewers score independently; final score is the median; ship only at median 9.7+ with zero blockers.
+- Self-test: this page was run through its own cohort. Round 1: median 9.20, 2 blockers. Round 2: median 9.70, 0 blockers. Round 3: median 9.70, 0 blockers.
 - Reviewer agent scores from screenshots at 1440px desktop and 390px mobile, plus Lighthouse (performance, accessibility, best practices, SEO), console errors, horizontal-overflow checks and a computed-style scan for banned patterns.
 - It returns a score plus ranked fixes, most important first, and never edits the repo.
 - Banned: glows, gradients, glassmorphism, floating phones, bento grids, confetti, serif headlines, filler copy.
@@ -11,4 +13,5 @@
 
 ## Links
 - [Method page](https://ship-bar.neural-forge.io/)
+- [Self-test results](https://ship-bar.neural-forge.io/#ran)
 - [SKILL.md (plain text)](https://ship-bar.neural-forge.io/skill.md)
