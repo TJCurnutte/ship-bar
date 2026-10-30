@@ -9,7 +9,7 @@
 - It returns a score plus ranked fixes, most important first, and never edits the repo.
 - Banned: glows, gradients, glassmorphism, floating phones, bento grids, confetti, serif headlines, filler copy.
 - Cohorts: several narrow-lens reviewer agents score independently; fixes are merged by rank.
-- Example: one product went v6 "still felt a tad vibe coded" to v12 passing at 9.7 (accessibility 100); v13 dropped to 9.3 when a sticky CTA covered a form field and a gradient slipped in.
+- LeadLens example: one product went v6 "still felt a tad vibe coded" to v12 passing at 9.7 (accessibility 100); v13 dropped to 9.3 when a sticky CTA covered a form field and a gradient slipped in.
 
 ## Links
 - [Method page](https://ship-bar.neural-forge.io/)

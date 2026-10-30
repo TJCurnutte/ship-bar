@@ -7,9 +7,9 @@ rows="".join(f"<tr><td>{i+1:02d} {e(n)}</td>"+"".join(f"<td class='n'>{R[k]['sco
 rows+="<tr><td><b>median</b></td>"+"".join(f"<td class='n'><b>{med[k]:.2f}</b></td>" for k in ks)+"</tr><tr><td><b>blockers</b></td>"+"".join(f"<td class='n'>{len(R[k]['blockers'])}</td>" for k in ks)+"</tr>"
 hist="".join(f"<li><b>{k} · median {med[k]:.2f} · {len(R[k]['blockers'])} blocker{'s' if len(R[k]['blockers'])!=1 else ''} · {'pass' if med[k]>=9.7 and not R[k]['blockers'] else 'fail'}</b><p>Measured: {e(R[k]['measure'])}.</p>"+(f"<p>Blockers: {e('; '.join(R[k]['blockers']))}.</p>" if R[k]['blockers'] else "")+f"<p>Top fixes, ranked:</p><ul>{''.join('<li>'+e(x)+'</li>' for x in R[k]['top'])}</ul></li>" for k in ks)
 last=ks[-1]
-sec=f'''<h2 id="ran">we ran it on this page</h2><p>A page about a benchmark should pass it. These are the real scores from running the 20-reviewer cohort on this site, round by round. The measurements came from headless Chrome and Lighthouse on the live URL. The reviewer judgments in these rounds were done by one agent working through each lens in turn, not by 20 separate models, and the table says exactly what they said.</p>
+sec=f'''<h2 id="ran">we ran it on this page</h2><p>A page about a benchmark should pass it. These are the real scores from running the 20-reviewer cohort on this site, round by round. The measurements came from headless Chrome and Lighthouse on the live URL. The reviewer judgments in these rounds were done by one agent working through each lens in turn, not by 20 separate models, and the table says exactly what they said.</p><p>Note: rounds r1 to r3 scored the earlier one-page version of this site. After feedback that it was too much information, the detail moved into this white paper and the homepage became a short slideshow. The new homepage was re-checked with the automated measurements only (0 console errors, no horizontal overflow at 1440 or 390, 0 banned patterns, Lighthouse 100 in all four categories on mobile and desktop); the 20 reviewers have not re-scored it yet.</p>
 <ol class="h">{hist}</ol><div class="t"><table><thead><tr><th>reviewer</th>{head}</tr></thead><tbody>{rows}</tbody></table></div>'''
-s=open(S+'index.html').read()
+s=open(S+'whitepaper.html').read()
 s=re.sub(r'<!--RAN-->.*?<!--/RAN-->','<!--RAN-->'+sec+'<!--/RAN-->',s,flags=re.S)
 if 'ol.h{' not in s: s=s.replace('</style>','ol.h{padding-left:20px}ol.h li{margin:12px 0}ol.h p{margin:2px 0;font-size:15px;color:var(--m)}</style>')
 # JSON-LD FAQ add
@@ -19,7 +19,7 @@ faq+= [{"@type":"Question","name":"How does the 20-reviewer cohort decide?","acc
 {"@type":"Question","name":"Did this page pass its own benchmark?","acceptedAnswer":{"@type":"Answer","text":" ".join(f"Round {k[1:]}: median {med[k]:.2f}, {len(R[k]['blockers'])} blockers." for k in ks)}}]
 ld[0]['dateModified']=ld[2]['dateModified']=R[last]['date']
 s=s[:m.start(1)]+json.dumps(ld)+s[m.end(1):]
-open(S+'index.html','w').write(s)
+open(S+'whitepaper.html','w').write(s)
 # html faq visible too
 L=open(S+'llms.txt').read().split('## Links')[0]
 L=re.sub(r'- Cohort:.*?\n','',L);L=re.sub(r'- Self-test:.*?\n','',L)
