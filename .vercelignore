@@ -1,1 +1,3 @@
 bench
+.env*
+README.md
